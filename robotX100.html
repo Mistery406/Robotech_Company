@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Robot X100</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Resetare stiluri */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Stiluri generale */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0b0f19;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Antet */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+            color: #4CAF50;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Container principal */
+        .robot-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #1c1f3b, #2a3055);
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        .robot-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .robot-header img {
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+            animation: float 4s ease-in-out infinite, fadeIn 1s ease-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .robot-info {
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .robot-info h2 {
+            font-size: 28px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .robot-info p {
+            font-size: 18px;
+            color: #ccc;
+            margin: 10px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF7043;
+        }
+
+        .add-to-cart {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: #FF7043;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.1);
+            background: #e65c2b;
+        }
+
+        /* Taburi */
+        .tabs {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .tabs button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .tabs button:hover {
+            background: #45a049;
+            transform: scale(1.1);
+        }
+
+        .tab-content {
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Buton Înapoi */
+        .back-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 30px;
+            background: #4CAF50;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .back-button:hover {
+            background: #45a049;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Robot X100 - Perfect pentru Treburile Casnice</h1>
+</header>
+
+<div class="robot-container">
+    <div class="robot-header">
+        <img src="X100.jpg" alt="Robot X100">
+        <div class="robot-info">
+            <h2>Robot X100</h2>
+            <p>Preț: <span class="price">999 USD</span></p>
+            <a href="#" class="add-to-cart" onclick="addToCart()">Adaugă în Coș</a>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button onclick="showTab('descriere')">Descriere</button>
+        <button onclick="showTab('specificatii')">Specificații</button>
+        <button onclick="showTab('review-uri')">Review-uri</button>
+    </div>
+
+    <div class="tab-content" id="descriere">
+        <p>Robotul X100 este proiectat pentru treburile casnice. Poate curăța, găti și ajuta cu sarcinile zilnice. Este ușor de utilizat, compact și foarte performant!</p>
+    </div>
+    <div class="tab-content" id="specificatii">
+        <p>Dimensiuni: 30x30x40 cm</p>
+        <p>Greutate: 4 kg</p>
+        <p>Autonomie baterie: 8 ore</p>
+        <p>Funcții: curățenie, gătit, programare personalizată</p>
+    </div>
+    <div class="tab-content" id="review-uri">
+        <p>⭐⭐⭐⭐⭐ - "Un robot excelent! Ajută foarte mult acasă!"</p>
+        <p>⭐⭐⭐⭐ - "Foarte bun, dar mai putea avea câteva funcții."</p>
+    </div>
+
+    <a href="Robotech Company_8.html" class="back-button">Înapoi la Magazin</a>
+</div>
+
+<script>
+    function showTab(tabId) {
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+    }
+
+    function addToCart() {
+        alert("Robot X100 a fost adăugat în coș!");
+    }
+</script>
+
+</body>
+</html>

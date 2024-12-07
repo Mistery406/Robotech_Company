@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Robot Zeta X</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #303030, #6040FF);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 40px;
+            background: #6040FF;
+            color: white;
+        }
+        header h1 {
+            font-size: 36px;
+        }
+        .robot-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+        }
+        .robot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .robot-header img {
+            width: 300px;
+            border-radius: 10px;
+            animation: float 4s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+        .robot-header img:hover {
+            transform: scale(1.05);
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .robot-info {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .robot-info h2 {
+            font-size: 32px;
+            color: #4CAF50;
+        }
+        .robot-info p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF4081;
+        }
+        .add-to-cart {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .add-to-cart:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+        }
+        .tabs {
+            margin-top: 30px;
+        }
+        .tabs button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-size: 16px;
+            background: #FF4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tabs button:hover {
+            background: #e83e72;
+        }
+        .tab-content {
+            margin-top: 20px;
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #FF4081;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Robot Zeta X - Aventuri în Aer Liber</h1>
+</header>
+
+<div class="robot-container">
+    <div class="robot-header">
+        <img src="Zeta X.jpg" alt="Robot Zeta X">
+        <div class="robot-info">
+            <h2>Robot Zeta X</h2>
+            <p>Preț: <span class="price">1999 USD</span></p>
+            <a href="#" class="add-to-cart" onclick="addToCart()">Adaugă în Coș</a>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button onclick="showTab('descriere')">Descriere</button>
+        <button onclick="showTab('specificatii')">Specificații</button>
+        <button onclick="showTab('review-uri')">Review-uri</button>
+    </div>
+
+    <div class="tab-content" id="descriere">
+        <p>Zeta X este robotul ideal pentru explorarea terenurilor dificile. Este conceput pentru expediții, adunarea de date și explorarea unor medii inaccesibile omului. Un ajutor indispensabil pentru aventurieri și exploratori!</p>
+    </div>
+    <div class="tab-content" id="specificatii">
+        <p>Dimensiuni: 50x40x60 cm</p>
+        <p>Greutate: 8 kg</p>
+        <p>Autonomie baterie: 12 ore</p>
+        <p>Funcții: explorare, analiza terenului, transmitere de date în timp real</p>
+    </div>
+    <div class="tab-content" id="review-uri">
+        <p>⭐⭐⭐⭐⭐ - "Un robot excelent pentru explorări! Stabil și fiabil."</p>
+        <p>⭐⭐⭐⭐ - "Foarte performant, dar destul de scump."</p>
+    </div>
+
+    <a href="Robotech Company_8.html" class="back-button">Înapoi la Magazin</a>
+</div>
+
+<script>
+    function showTab(tabId) {
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+    }
+
+    function addToCart() {
+        alert("Robot Zeta X a fost adăugat în coș!");
+
+        // Feedback vizual pentru buton
+        const button = document.querySelector('.add-to-cart');
+        button.style.background = '#e83e72';
+        setTimeout(() => {
+            button.style.background = '#4CAF50';
+        }, 300);
+    }
+</script>
+
+</body>
+</html>

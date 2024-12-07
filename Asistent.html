@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Robotech Virtual Assistant</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1e2a78, #151d45);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      animation: pulse 3s infinite;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.2em;
+      opacity: 0.8;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        text-shadow: 0 0 20px #ff007c, 0 0 40px #ff007c;
+      }
+      50% {
+        text-shadow: 0 0 40px #ff1493, 0 0 60px #ff1493;
+      }
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    section {
+      margin: 20px 0;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    button {
+      background: linear-gradient(90deg, #ff007c, #590fb7);
+      color: black;
+      border: none;
+      border-radius: 30px;
+      padding: 15px 30px;
+      font-size: 1em;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(255, 0, 124, 0.7);
+    }
+
+    button:active {
+      transform: scale(1);
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+      font-size: 0.9em;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Special Elements */
+    #robotX100Demo img,
+    #entertainment img,
+    #customRobot img {
+      border-radius: 20px;
+      max-width: 300px; /* Dimensiune maximă mai mică */
+      max-height: 300px; /* Înălțime maximă */
+      height: auto;
+      width: auto;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #robotX100Demo img:hover,
+    #entertainment img:hover,
+    #customRobot img:hover {
+      transform: scale(1.05);
+    }
+
+    form {
+      display: inline-block;
+      text-align: left;
+      background: #fff; /* Fundal alb */
+      color: #000; /* Text negru */
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+      color: #000; /* Text negru */
+    }
+
+    form select, form input {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+      background: #fff; /* Fundal alb */
+      color: #000; /* Text negru */
+    }
+
+    form select:focus, form input:focus {
+      outline: 2px solid #4CAF50; /* Indicare focalizare */
+    }
+
+    form button {
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Robotech Virtual Assistant</h1>
+    <p>Explorează lumea roboților de mâine!</p>
+  </header>
+  
+  <main>
+    <section id="intro" class="active">
+      <h2>Bun venit!</h2>
+      <p>Eu sunt Robi, asistentul tău virtual. Ce tip de robot te interesează astăzi?</p>
+      <button onclick="navigateTo('homeRobots')">Roboți casnici</button>
+      <button onclick="navigateTo('entertainment')">Divertisment</button>
+      <button onclick="navigateTo('customization')">Personalizare</button>
+    </section>
+
+    <section id="homeRobots">
+      <h2>Roboți Casnici</h2>
+      <p>X100 este cel mai vândut robot casnic. Poate curăța podeaua, pregăti rețete culinare și răspunde comenzilor vocale.</p>
+      <button onclick="showDemo('robotX100Demo')">Vrei să vezi cum funcționează?</button>
+      <div id="robotX100Demo" class="hidden">
+        <p>X100 pregătește un sandviș...</p>
+        <img src="1.webp" alt="Robot X100">
+      </div>
+      <button onclick="navigateTo('intro')">Înapoi</button>
+    </section>
+
+    <section id="entertainment">
+      <h2>Divertisment</h2>
+      <p>Descoperă Alpha 3000, un robot care cântă, dansează și educă copiii.</p>
+      <img src="2.webp" alt="Alpha 3000">
+      <button onclick="navigateTo('intro')">Înapoi</button>
+    </section>
+
+    <section id="customization">
+      <h2>Personalizare</h2>
+      <p>Configurează-ți propriul robot!</p>
+      <form id="customRobotForm">
+        <label>Alege culoarea:
+          <select name="color">
+            <option value="Negru cu accente aurii">Negru cu accente aurii</option>
+            <option value="Argintiu">Argintiu</option>
+            <option value="Albastru">Albastru</option>
+          </select>
+        </label>
+        <label>
+          Funcții avansate:
+          <input type="checkbox" name="facialRecognition" value="Recunoaștere facială"> Recunoaștere facială
+          <input type="checkbox" name="voiceControl" value="Comenzi vocale"> Comenzi vocale
+        </label>
+        <button type="button" onclick="finalizeCustomization()">Finalizează</button>
+      </form>
+
+      <!-- Nouă imagine suplimentară -->
+      <div id="customRobot" class="hidden">
+        <p>Robotul tău personalizat:</p>
+        <img src="DALL·E 2024-12-06 11.29.41 - A futuristic robot customization station, featuring a sleek touch screen interface and modular robot parts on display. The scene shows a customer desi.webp" alt="Robot personalizat">
+      </div>
+
+      <p id="customResult" class="hidden">Robotul tău personalizat va fi gata în trei zile. Îți putem trimite notificări prin e-mail pentru actualizări.</p>
+      <button onclick="navigateTo('intro')">Înapoi</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Robotech Company | Futuristic Experiences Await</p>
+  </footer>
+  
+  <script>
+    function navigateTo(sectionId) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    function showDemo(demoId) {
+      document.getElementById(demoId).classList.remove('hidden');
+    }
+
+    function finalizeCustomization() {
+      document.getElementById('customResult').classList.remove('hidden');
+      document.getElementById('customRobot').classList.remove('hidden');  // Afișează imaginea personalizată
+    }
+  </script>
+</body>
+</html>

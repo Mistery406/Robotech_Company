@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Robotech Company</title>
+    <style>
+        /* Resetare stiluri */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Stiluri generale */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0b0f19;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Stil pentru antet */
+        header {
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #4CAF50;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Banner principal */
+        .hero-section {
+            height: 100vh;
+            background: url('robot-banner.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            color: #fff;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 30px; /* Spațiu suplimentar */
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #4CAF50;
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .hero-content .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #4CAF50;
+            color: #fff;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .hero-content .cta-button:hover {
+            transform: scale(1.1);
+            background: #45a049;
+        }
+
+        /* Secțiune de roboți */
+        .robots-section {
+            background: #121829;
+            padding: 50px 20px;
+            text-align: center;
+            scroll-margin-top: 100px; /* Ajustare pentru ancorare */
+        }
+
+        .robots-section h2 {
+            font-size: 40px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .robots-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 50px;
+        }
+
+        .robot-card {
+            background: linear-gradient(135deg, #1c1f3b, #2a3055);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        .robot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .robot-card img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 15px;
+        }
+
+        .robot-card h3 {
+            font-size: 28px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .robot-card p {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .robot-card .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FF7043;
+        }
+
+        /* Butoane */
+        .robot-card a {
+            text-decoration: none;
+            color: #fff;
+            background: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .robot-card a:hover {
+            background: #45a049;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Antet -->
+    <header>
+        <div class="logo">Robotech</div>
+        <nav>
+            <a href="#robots">Roboți</a>
+            <a href="Asistent.html">Asistent</a>
+            <a href="contact.html">Contact</a> 
+        </nav>
+    </header>
+
+    <!-- Banner principal -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <img src="logo.jpg" alt="Robotech Logo">
+            <h1>Bine ați venit la Robotech</h1>
+            <p>Explorați lumea roboților avansați și descoperiți tehnologia viitorului.</p>
+            <a href="#robots" class="cta-button">Vezi Roboți</a>
+        </div>
+    </section>
+
+    <!-- Secțiune de roboți -->
+    <section class="robots-section" id="robots">
+        <h2>Roboții Noștri</h2>
+        <div class="robots-container">
+            <div class="robot-card">
+                <img src="X100.jpg" alt="Robot X100">
+                <h3>Robot X100</h3>
+                <p>Perfect pentru treburile casnice: curățenie, gătit și organizare.</p>
+                <div class="price">999 USD</div>
+                <a href="robotX100.html">Detalii</a>
+            </div>
+            <div class="robot-card">
+                <img src="Alpha3000.jpg" alt="Alpha 3000">
+                <h3>Alpha 3000</h3>
+                <p>Distracție și educație la superlativ pentru întreaga familie.</p>
+                <div class="price">1299 USD</div>
+                <a href="robotAlpha3000.html">Detalii</a>
+            </div>
+            <div class="robot-card">
+                <img src="Zeta X.jpg" alt="Zeta X">
+                <h3>Zeta X</h3>
+                <p>Explorator profesionist pentru terenuri dificile și aventuri.</p>
+                <div class="price">1999 USD</div>
+                <a href="robotZetaX.html">Detalii</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subsol -->
+    <footer>
+        <p>&copy; 2024 Robotech Company. Toate drepturile rezervate.</p>
+    </footer>
+
+</body>
+</html>

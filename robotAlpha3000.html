@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Robot Alpha 3000</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Resetare stiluri */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Stiluri generale */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0b0f19, #1f2836);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Antet */
+        header {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #ff8c00, #d35400);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 42px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Container principal */
+        .robot-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(40, 44, 52, 0.9), rgba(30, 34, 42, 0.9));
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .robot-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .robot-header img {
+            width: 400px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .robot-info {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .robot-info h2 {
+            font-size: 36px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .robot-info p {
+            font-size: 20px;
+            color: #ccc;
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FF7043;
+            text-shadow: 2px 2px 10px rgba(255, 112, 67, 0.8);
+        }
+
+        .add-to-cart {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Taburi */
+        .tabs {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .tabs button {
+            padding: 15px 25px;
+            font-size: 18px;
+            background: #FF7043;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .tabs button:hover {
+            background: #e65c2b;
+            transform: scale(1.1);
+        }
+
+        .tab-content {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Buton Înapoi */
+        .back-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #FF7043, #e65c2b);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Robot Alpha 3000 - Companionul Futurist</h1>
+</header>
+
+<div class="robot-container">
+    <div class="robot-header">
+        <img src="Alpha3000.jpg" alt="Robot Alpha 3000">
+        <div class="robot-info">
+            <h2>Robot Alpha 3000</h2>
+            <p>Un robot de ultimă generație, gata să transforme viața de zi cu zi într-o experiență smart.</p>
+            <p>Preț: <span class="price">1299 USD</span></p>
+            <a href="#" class="add-to-cart" onclick="addToCart()">Adaugă în Coș</a>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button onclick="showTab('descriere')">Descriere</button>
+        <button onclick="showTab('specificatii')">Specificații</button>
+        <button onclick="showTab('review-uri')">Review-uri</button>
+    </div>
+
+    <div class="tab-content" id="descriere">
+        <p>Alpha 3000 este mai mult decât un robot - este o extensie a familiei tale. Cu funcții de divertisment, educație și smart home, acesta aduce tehnologia la tine acasă.</p>
+    </div>
+    <div class="tab-content" id="specificatii">
+        <p>Dimensiuni: 40x30x50 cm</p>
+        <p>Greutate: 5 kg</p>
+        <p>Autonomie baterie: 10 ore</p>
+        <p>Funcții: educație, jocuri interactive, integrare cu aplicații smart</p>
+    </div>
+    <div class="tab-content" id="review-uri">
+        <p>⭐⭐⭐⭐⭐ - "Un robot incredibil! Copiii mei îl adoră."</p>
+        <p>⭐⭐⭐⭐ - "Foarte util pentru activități educative."</p>
+    </div>
+
+    <a href="Robotech Company_8.html" class="back-button">Înapoi la Magazin</a>
+</div>
+
+<script>
+    function showTab(tabId) {
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+    }
+
+    function addToCart() {
+        alert("Robot Alpha 3000 a fost adăugat în coș!");
+    }
+</script>
+
+</body>
+</html>
